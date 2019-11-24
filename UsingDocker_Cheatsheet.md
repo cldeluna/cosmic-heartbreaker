@@ -1,6 +1,10 @@
-# Using Docker Cheatsheet
+****# Using Docker Cheatsheet
 
-This "Quick Start" cheatsheet it intended to get you up and running quickly with the various ansible containers.
+This "Quick Start" cheatsheet is intended to get you up and running quickly with the various ansible containers.
+
+These Ansible containers have been built over the years to provide a quick alternative to running an Ansible Control server on a local virtualization VM (VirtualBox or VMware).  An container is also handy if you need an Ansible Control server to use via a VPN connection.   You will see that many of the test playbooks are playbooks designed to perform discovery on a set of devices (aka run lots of show commands and save the output) and so a common practice is to VPN in (or connect directly) to a client network and quickly perform this discovery task.
+
+
 
 The following Docker images are available on [Docker Hub](https://hub.docker.com/)
 
@@ -13,25 +17,32 @@ The following Docker images are available on [Docker Hub](https://hub.docker.com
 - [Xenial Ansible (Ubuntu 16.04Xenial Xerus) and Ansible 2.4](https://hub.docker.com/r/cldeluna/xenial-ansible)
 - [Trusty Ansible (Ubuntu 14.04 Trusty Tahr) and Ansible 2.2](https://hub.docker.com/r/cldeluna/trusty-ansible)
 
+---
+
+
 
 ### Installing Docker
+
+To run any Docker container (aka Docker image) you will need to install Docker Desktop on your Mac or Windows system (see note below about Docker Desktop for Windows and consider Docker Toolbox if you run other virtualization software) or Docker Engine on your linux host. 
+
+The instructions below focus on Mac and Windows operating systems as those tend to be the most common.
+
+#### Install on your Operating System of choice
 
 [Installing Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/)
 
 [Installing Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/)
 WARNING: The Docker Desktop application is only supported on Windows 10 64-bit and requires Hyper-V and the Containers Window features to be enabled.
 
-
-This means that other Virtualization software that does not support HyperV will no longer work (i.e. VNware Workstation and VirtualBox)
+This means that other Virtualization software that does not support HyperV will not work work (i.e. VNware Workstation and VirtualBox) while you have Hyper-V enabled and Docker Desktop won't work when you have have Hyper-V disabled (but VirtualBox and VMware will).
 
 If you have existing Virtualization software installed and which you use, Docker Toolbox for Windows is still available.
 
-[Docker Toolbox on Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)
+- [Docker Toolbox on Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)
 
-[Toolbox Releases](https://github.com/docker/toolbox/releases)
+- [Toolbox Releases](https://github.com/docker/toolbox/releases)
 
-
-
+[Installing Docker Engine Community version on Linux](https://docs.docker.com/install/)
 
 ### Getting Started on Mac with Docker Desktop
 
@@ -47,7 +58,6 @@ If you have existing Virtualization software installed and which you use, Docker
 
 ![About Docker](docker-mac.png)
 
-
 2. Open a terminal window and use the **docker run -it** command to start the container on your Mac.
 
 Full command to start an interactive session
@@ -60,8 +70,7 @@ Once the download is complete and the container is running you will notice that 
 
 It will look something like "root@c421cab61f1f:/ansible_local". 
 
-
-```
+```bash
 Claudias-iMac:disco-immigrant claudia$ docker run -it cldeluna/disco-immigrant
 root@c421cab61f1f:/ansible_local#
 ```
@@ -70,9 +79,7 @@ root@c421cab61f1f:/ansible_local#
 
 If you **cd** or change directory into the cisco_ios directory you can get started with some basic Playbooks.
 
-
-
-```
+```bash
 Claudias-iMac:disco-immigrant claudia$ docker run -it cldeluna/disco-immigrant
 root@c421cab61f1f:/ansible_local#
 root@c421cab61f1f:/ansible_local# ls
@@ -83,37 +90,79 @@ ansible.cfg     ios_all_vrf_arp.yml   ios_show_cmdlist_zip.yml  logs
 filter_plugins  ios_facts_lab.yml     ios_show_lab.yml          nxos_facts_lab.yml
 group_vars      ios_facts_report.yml  ios_show_lab25.yml        nxos_show_cmdlist.yml
 hosts           ios_show_cmdlist.yml  ios_show_lab_brief.yml    templates
-root@c421cab61f1f:/ansible_local/cisco_ios# vi
+root@c421cab61f1f:/ansible_local/cisco_ios# 
 ```
 
+### Getting Started with Docker Toolbox on Windows
 
-### Getting Started on Windows
+Environment:
 
+Microsoft Windows 10 Pro
+
+x64-based PC
+
+Intel(R) Core(TM)i7-6700K CPU @ 4.00GHz, 4008 Mhz, 4Core(s)...
 
 #### Summary of Steps
 
 1. Make sure Docker Desktop is installed and running
-2. Open a terminal window and launch your container
+2. Open a terminal window or "default" VirtualBox VM console
 3. Look around the ready built repositories which are cloned in the container to get you started quickly.  
 
 #### Details
 
+1. Docker Toolbox is quirky, no question about it.  The desktop shortcuts often don't work for me but going directly to the VirtualBox VM typically does.  Open up VirtualBox and make sure the Docker Toolbox VM is running (it is actually called "default"!)
 
-###  Execute one of the ready built Playbooks
+2. For me, what generally works is opening up the default VM console directly.  Double-click on 1 in the image below to start the default container and open up the container VM console.
+
+3. Start looking around!  Check the version of ansible on the container.  In the example below we are using the disco-immigrant image which comes with ansible 2.9.1.  Check out the Ansible playbook repositories and change directory into one to see the example playbooks and try one!...you can find details in the "Run one of the ready built Playbooks!"  At this point, once you are in a working docker CLI the process is basically the same across all operating systems.
+
+4. Always do a "git pull" in any of the cloned repositories to make sure you are running the latest scripts and playbooks.
+
+5. Run your first playbook!  You don't need to bring up any device as most use the [DevNet](https://developer.cisco.com/) AlwaysOn Sandbox devices.
+
+[![Docker Toolbox on Windows](DockerToolbox-Win-2019-11-24_12-47-34.png)](https://vimeo.com/user99404998/review/375280633/e397a51173)
+
+[Using Docker Toolbox on Windows Video ~13min](https://vimeo.com/user99404998/review/375280633/e397a51173)
+
+
+### Getting Started with Docker Desktop on Windows
+
+I'm running
 
 #### Summary of Steps
 
-1. Exeute a **git pull** to make sure the repository has the latest code
-2. Try one of the ready made Playbooks
-3. Take one of the example playbooks and modify it to suit your needs or create a new Playbook.
+2. Make sure Docker Desktop is installed and running
+3. Open a terminal window and launch your container
+4. Look around the ready built repositories which are cloned in the container to get you started quickly.
 
 #### Details
 
-1. Before you try any of the playbooks, its a good idea to execute a **git pull** so that you have the latest version of the repository.
+
+
+Start looking around...you can find details in the "Run one of the ready built Playbooks!" At this point, once you are in a working docker CLI the process is basically the same across all operating systems.
+
+---
+
+
+
+### Run one of the ready built Playbooks!
+
+#### Summary of Steps
+
+1. Select a repository to try.  In this example we will try the **cisco_ios** playbook repository
+2. Enter the **git pull** command in your container terminal to make sure the repository has the latest code
+3. Try one of the ready made Playbooks
+4. Take one of the example playbooks and modify it to suit your needs or create a new Playbook.
+
+#### Details
+
+1. Move into the desired playbook repository by issueing the change directory command **cd cisco_ios** from the ansible_local directory
+2. Before you try any of the playbooks, its a good idea to execute a **git pull** so that you have the latest version of the repository.
 
 Example of updated repository:
 
-```git
+```bash
 root@c421cab61f1f:/ansible_local/cisco_ios# git pull
 remote: Enumerating objects: 5, done.
 remote: Counting objects: 100% (5/5), done.
@@ -127,10 +176,9 @@ Fast-forward
  ios_show_lab_brief.yml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 root@c421cab61f1f:/ansible_local/cisco_ios#
-
 ```
 
-
+*This means that updates were made to the repository since the time the Docker image was built*
 
 Example of repository already up to date:
 
@@ -140,9 +188,13 @@ Already up to date.
 root@c421cab61f1f:/ansible_local/cisco_ios#
 ```
 
-2. Execute the ios_show_lab_brief.yml Playbook.
+**This means that no updates have been made to the repository since the time the Docker image was built*
 
-The comments in the playbook explain what its doing and how to execute it.
+
+
+2. Execute the **ios_show_lab_brief.yml** Playbook.
+
+The comments in the playbook explain in some detail what the playbook is doing and how to execute it.
 
 ```bash
 root@c421cab61f1f:/ansible_local/cisco_ios# ansible-playbook -i hosts ios_show_lab_brief.yml
@@ -163,15 +215,11 @@ root@c421cab61f1f:/ansible_local/cisco_ios/logs# tree
 0 directories, 4 files
 ```
 
-3.  At this point, you can start making these playbooks your own.
+3. At this point, you can start making these playbooks your own.
 
 Update the hosts file and create your own group of devices.  Update the show commands.  Start your own Playbook now that you have an Ansible Control server you are ready to go!
 
 Since this is a container, it will leverage your systems network connection so if you VPN into your lab for example, you can use Control Server on your system.
-
-
-
-
 
 #### Full output of ios_show_lab_brief.yml Playbook Execution
 
