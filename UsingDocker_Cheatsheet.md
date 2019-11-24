@@ -2,11 +2,17 @@
 
 This "Quick Start" cheatsheet it intended to get you up and running quickly with the various ansible containers.
 
+The following Docker images are available on [Docker Hub](https://hub.docker.com/)
 
-- Cosmic Hearthbreaker (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.6 Heartbreaker 
-- Cosmic Light (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.7 In the Light
-- Cosmic More Time (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.8 More Time
-- Disco Immigrant (Ubuntu 19.04 Disco Dingo) and Ansible 2.9 Immigrant Song
+[cldeluna Docker Images](https://hub.docker.com/u/cldeluna)
+
+- [Disco Immigrant (Ubuntu 19.04 Disco Dingo) and Ansible 2.9 Immigrant Song](https://hub.docker.com/r/cldeluna/disco-immigrant)
+- [Cosmic More Time (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.8 More Time](https://hub.docker.com/r/cldeluna/cosmic-moretimes)
+- [Cosmic Light (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.7 In the Light](https://hub.docker.com/r/cldeluna/cosmic-light)
+- [Cosmic Hearthbreaker (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.6 Heartbreaker](https://hub.docker.com/r/cldeluna/cosmic-heartbreaker)
+- [Xenial Ansible (Ubuntu 16.04Xenial Xerus) and Ansible 2.4](https://hub.docker.com/r/cldeluna/xenial-ansible)
+- [Trusty Ansible (Ubuntu 14.04 Trusty Tahr) and Ansible 2.2](https://hub.docker.com/r/cldeluna/trusty-ansible)
+
 
 ### Installing Docker
 
