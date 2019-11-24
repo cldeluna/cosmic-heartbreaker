@@ -3,8 +3,9 @@
 This "Quick Start" cheatsheet it intended to get you up and running quickly with the various ansible containers.
 
 
-- Cosmic Hearthbreaker (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2,6 Heartbreaker 
+- Cosmic Hearthbreaker (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.6 Heartbreaker 
 - Cosmic Light (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.7 In the Light
+- Cosmic More Time (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.8 More Time
 - Disco Immigrant (Ubuntu 19.04 Disco Dingo) and Ansible 2.9 Immigrant Song
 
 ### Installing Docker
