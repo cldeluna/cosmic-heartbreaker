@@ -1,15 +1,18 @@
-****# Using Docker Cheatsheet
+# Using Docker 
+## A cheat sheet for using the purpose built Docker images for Ansible and Python
 
-This "Quick Start" cheatsheet is intended to get you up and running quickly with the various ansible containers.
+### Built for Network Engineers by a Network Engineer
 
-These Ansible containers have been built over the years to provide a quick alternative to running an Ansible Control server on a local virtualization VM (VirtualBox or VMware).  An container is also handy if you need an Ansible Control server to use via a VPN connection.   You will see that many of the test playbooks are playbooks designed to perform discovery on a set of devices (aka run lots of show commands and save the output) and so a common practice is to VPN in (or connect directly) to a client network and quickly perform this discovery task.
+These Ansible containers have been built over the years to provide a quick alternative to running an Ansible Control server on a local virtualization VM (VirtualBox or VMware).  A container is also handy if you need an Ansible Control server to use via a VPN connection.   You will see that many of the test playbooks are playbooks designed to perform discovery on a set of devices (aka run lots of show commands and save the output) and so a common practice is to VPN in (or connect directly) to a client network and quickly perform this discovery task.
 
+This "Quick Start" cheat sheet is intended to get you up and running quickly with the various Ansible containers.
 
 
 The following Docker images are available on [Docker Hub](https://hub.docker.com/)
 
-[cldeluna Docker Images](https://hub.docker.com/u/cldeluna)
+[Docker Images providing an Ansible and Python environment for Network Engineers - Complete List](https://hub.docker.com/u/cldeluna)
 
+Select a specific Ansible Version:
 - [Disco Immigrant (Ubuntu 19.04 Disco Dingo) and Ansible 2.9 Immigrant Song](https://hub.docker.com/r/cldeluna/disco-immigrant)
 - [Cosmic More Time (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.8 More Time](https://hub.docker.com/r/cldeluna/cosmic-moretimes)
 - [Cosmic Light (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.7 In the Light](https://hub.docker.com/r/cldeluna/cosmic-light)
