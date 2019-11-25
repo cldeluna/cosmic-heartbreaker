@@ -49,6 +49,12 @@ If you have existing Virtualization software installed and which you use, Docker
 
 ### Getting Started on Mac with Docker Desktop
 
+Environment:
+
+Mac OS X (macOS Sierra Version 10.12.6)
+Intel based iMac
+Intel Core i7 4GHz 23 GB Memory
+
 #### Summary of Steps
 
 1. Make sure Docker Desktop is installed and running
@@ -78,7 +84,13 @@ Claudias-iMac:disco-immigrant claudia$ docker run -it cldeluna/disco-immigrant
 root@c421cab61f1f:/ansible_local#
 ```
 
-3. Several repositories are cloned into the container to get you started quickly.  Using the **ls** command will give  you a listing of the directories.
+
+3. Start looking around!  Check the version of ansible on the container.  In the example below we are using the disco-immigrant image which comes with ansible 2.9.1.  Several repositories are cloned into the container to get you started quickly. Check out the Ansible playbook repositories and change directory into one to see the example playbooks and try one!...you can find details in the "Run one of the ready built Playbooks!"  At this point, once you are in a working docker CLI the process is basically the same across all operating systems.
+
+4. Always do a "git pull" in any of the cloned repositories to make sure you are running the latest scripts and playbooks.
+
+5. Run your first playbook!  You don't need to bring up any device as most use the [DevNet](https://developer.cisco.com/) AlwaysOn Sandbox devices.
+
 
 If you **cd** or change directory into the cisco_ios directory you can get started with some basic Playbooks.
 
@@ -95,6 +107,13 @@ group_vars      ios_facts_report.yml  ios_show_lab25.yml        nxos_show_cmdlis
 hosts           ios_show_cmdlist.yml  ios_show_lab_brief.yml    templates
 root@c421cab61f1f:/ansible_local/cisco_ios# 
 ```
+
+[![Docker Desktop on Mac OS X](Docker-Desktop-MacOSx-2019-11-24_13-43-56.png)](https://vimeo.com/user99404998/review/375287020/a386a80497)
+
+[Using Docker Desktop on Mac OS X Video ~13min](https://vimeo.com/user99404998/review/375287020/a386a80497)
+
+
+
 
 ### Getting Started with Docker Toolbox on Windows
 
