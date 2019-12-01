@@ -1,4 +1,5 @@
-# Using Docker 
+# Using Docker
+
 ## A cheat sheet for using the purpose built Docker images for Ansible and Python
 
 ### Built for Network Engineers by a Network Engineer
@@ -7,12 +8,12 @@ These Ansible containers have been built over the years to provide a quick alter
 
 This "Quick Start" cheat sheet is intended to get you up and running quickly with the various Ansible containers.
 
-
 The following Docker images are available on [Docker Hub](https://hub.docker.com/)
 
 [Docker Images providing an Ansible and Python environment for Network Engineers - Complete List](https://hub.docker.com/u/cldeluna)
 
 Select a specific Ansible Version:
+
 - [Disco Immigrant (Ubuntu 19.04 Disco Dingo) and Ansible 2.9 Immigrant Song](https://hub.docker.com/r/cldeluna/disco-immigrant)
 - [Cosmic More Time (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.8 More Time](https://hub.docker.com/r/cldeluna/cosmic-moretimes)
 - [Cosmic Light (Ubuntu 18.10 Cosmic Cuttlefish) and Ansible 2.7 In the Light](https://hub.docker.com/r/cldeluna/cosmic-light)
@@ -22,22 +23,20 @@ Select a specific Ansible Version:
 
 ---
 
-
-
 ### Installing Docker
 
 To run any Docker container (aka Docker image) you will need to install Docker Desktop on your Mac or Windows system (see note below about Docker Desktop for Windows and consider Docker Toolbox if you run other virtualization software) or Docker Engine on your linux host. 
 
-The instructions below focus on Mac and Windows operating systems as those tend to be the most common.
+The instructions below focus on Mac and Windows operating systems as those tend to be the most prevalent.
 
 #### Install on your Operating System of choice
 
 [Installing Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/)
 
 [Installing Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/)
-WARNING: The Docker Desktop application is only supported on Windows 10 64-bit and requires Hyper-V and the Containers Window features to be enabled.
+WARNING: The Docker Desktop application is only supported on Windows 10 Pro (or better) 64-bit and requires Hyper-V and the Containers Window features to be enabled.
 
-This means that other Virtualization software that does not support HyperV will not work work (i.e. VNware Workstation and VirtualBox) while you have Hyper-V enabled and Docker Desktop won't work when you have have Hyper-V disabled (but VirtualBox and VMware will).
+This means that other Virtualization software that does not support HyperV will not work work (i.e. VMware Workstation and VirtualBox) while you have Hyper-V enabled and Docker Desktop won't work when you have have Hyper-V disabled (but VirtualBox and VMware will).
 
 If you have existing Virtualization software installed and which you use, Docker Toolbox for Windows is still available.
 
@@ -58,39 +57,48 @@ Intel Core i7 4GHz 23 GB Memory
 #### Summary of Steps
 
 1. Make sure Docker Desktop is installed and running
-2. Open a terminal window and launch your container
-3. Look around the ready built repositories which are cloned in the container to get you started quickly.  
+2. Open a terminal window and launch your container with the **docker run** command
+3. Look around the ready built repositories which are cloned into the container to get you started quickly (always remember to **git pull** to get the latest).  
 
 #### Details
 
-1. Make sure that Docker is installed and running on your Mac.
+[![Docker Desktop on Mac OS X](Docker-Desktop-MacOSx-2019-11-24_13-43-56.png)](https://vimeo.com/user99404998/review/375287020/a386a80497)
+
+[Using Docker Desktop on Mac OS X Video ~13min](https://vimeo.com/user99404998/review/375287020/a386a80497)
+
+Before starting make sure that Docker is installed and running on your Mac.
 
 ![About Docker](docker-mac.png)
 
-2. Open a terminal window and use the **docker run -it** command to start the container on your Mac.
+1. Open a terminal window and use the **docker run -it** command to start the container on your Mac.
 
 Full command to start an interactive session
-***docker run -it cldeluna/disco-immigrant*** 
+`docker run -it cldeluna/disco-immigrant `
 
 The first time you execute this command, the docker image will download and then put you into an interacive bash shell in the container.
-This will basically take over your terminal window so if you need to do something else on your system open up a different terminal window.
+
+`-i, --interactive    Keep STDIN open even if not attached`
+
+`-t, --tty            Allocate a pseudo-TTY``
+
+This will basically take over your terminal window so if you need to do something else on your system open up a new or different terminal window.
 
 Once the download is complete and the container is running you will notice that the prompt in your terminal window has changed.
 
-It will look something like "root@c421cab61f1f:/ansible_local". 
+It will look something like "**root@c421cab61f1f:/ansible_local**". 
 
 ```bash
 Claudias-iMac:disco-immigrant claudia$ docker run -it cldeluna/disco-immigrant
 root@c421cab61f1f:/ansible_local#
 ```
 
+2. Start looking around!  Check the version of ansible on the container.  In the example below we are using the disco-immigrant image which comes with ansible 2.9.1.  
 
-3. Start looking around!  Check the version of ansible on the container.  In the example below we are using the disco-immigrant image which comes with ansible 2.9.1.  Several repositories are cloned into the container to get you started quickly. Check out the Ansible playbook repositories and change directory into one to see the example playbooks and try one!...you can find details in the "Run one of the ready built Playbooks!"  At this point, once you are in a working docker CLI the process is basically the same across all operating systems.
+3. Several repositories are cloned into the container to get you started quickly. Check out the Ansible playbook repositories and change directory into one to see the example playbooks and try one!...you can find details in the "Run one of the ready built Playbooks!"  At this point, once you are in a working docker CLI the process is basically the same across all operating systems.
 
-4. Always do a "git pull" in any of the cloned repositories to make sure you are running the latest scripts and playbooks.
+4. Always do a "**git pull**" in any of the cloned repositories to make sure you are running the latest scripts and playbooks.
 
-5. Run your first playbook!  You don't need to bring up any device as most use the [DevNet](https://developer.cisco.com/) AlwaysOn Sandbox devices.
-
+5. Run your first playbook!  You don't need to bring up any device as many of the playbooks use the [DevNet](https://developer.cisco.com/) AlwaysOn Sandbox devices.
 
 If you **cd** or change directory into the cisco_ios directory you can get started with some basic Playbooks.
 
@@ -111,9 +119,6 @@ root@c421cab61f1f:/ansible_local/cisco_ios#
 [![Docker Desktop on Mac OS X](Docker-Desktop-MacOSx-2019-11-24_13-43-56.png)](https://vimeo.com/user99404998/review/375287020/a386a80497)
 
 [Using Docker Desktop on Mac OS X Video ~13min](https://vimeo.com/user99404998/review/375287020/a386a80497)
-
-
-
 
 ### Getting Started with Docker Toolbox on Windows
 
@@ -139,7 +144,7 @@ Intel(R) Core(TM)i7-6700K CPU @ 4.00GHz, 4008 Mhz, 4Core(s)...
 
 3. Start looking around!  Check the version of ansible on the container.  In the example below we are using the disco-immigrant image which comes with ansible 2.9.1.  Check out the Ansible playbook repositories and change directory into one to see the example playbooks and try one!...you can find details in the "Run one of the ready built Playbooks!"  At this point, once you are in a working docker CLI the process is basically the same across all operating systems.
 
-4. Always do a "git pull" in any of the cloned repositories to make sure you are running the latest scripts and playbooks.
+4. Always do a "**git pull**" in any of the cloned repositories to make sure you are running the latest scripts and playbooks.
 
 5. Run your first playbook!  You don't need to bring up any device as most use the [DevNet](https://developer.cisco.com/) AlwaysOn Sandbox devices.
 
@@ -148,25 +153,8 @@ Intel(R) Core(TM)i7-6700K CPU @ 4.00GHz, 4008 Mhz, 4Core(s)...
 [Using Docker Toolbox on Windows Video ~13min](https://vimeo.com/user99404998/review/375280633/e397a51173)
 
 
-### Getting Started with Docker Desktop on Windows
-
-I'm running
-
-#### Summary of Steps
-
-2. Make sure Docker Desktop is installed and running
-3. Open a terminal window and launch your container
-4. Look around the ready built repositories which are cloned in the container to get you started quickly.
-
-#### Details
-
-
-
-Start looking around...you can find details in the "Run one of the ready built Playbooks!" At this point, once you are in a working docker CLI the process is basically the same across all operating systems.
 
 ---
-
-
 
 ### Run one of the ready built Playbooks!
 
@@ -211,8 +199,6 @@ root@c421cab61f1f:/ansible_local/cisco_ios#
 ```
 
 **This means that no updates have been made to the repository since the time the Docker image was built*
-
-
 
 2. Execute the **ios_show_lab_brief.yml** Playbook.
 
